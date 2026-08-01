@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Selská chalupa Anetka — ubytování v Českém lese, Březí u Horšovského Týna</title>
+<meta name="description" content="Ubytování v Českém lese v Březí u Horšovského Týna. 9 pokojů, snídaně v ceně, parkování zdarma. Kousek od Horšovského Týna, Domažlic a hranice s Bavorskem.">
+<meta name="theme-color" content="#33503F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 84'%3E%3Cpath d='M6,58 L50,10 L94,58' fill='none' stroke='%23AD5834' stroke-width='10' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+
+<!-- Open Graph / sdílení na sociálních sítích a v messengerech -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="cs_CZ">
+<meta property="og:site_name" content="Selská chalupa Anetka">
+<meta property="og:title" content="Selská chalupa Anetka — ubytování v Českém lese, Březí u Horšovského Týna">
+<meta property="og:description" content="Ubytování v Českém lese v Březí u Horšovského Týna. 9 pokojů, snídaně v ceně, parkování zdarma. Kousek od Horšovského Týna, Domažlic a hranice s Bavorskem.">
+<meta property="og:url" content="https://www.selskachalupaanetka.cz/">
+<meta property="og:image" content="https://www.selskachalupaanetka.cz/photos/hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://www.selskachalupaanetka.cz/">
+<!-- POZNÁMKA PRO MARTINA: og:image výše bude fungovat na náhledy (WhatsApp, Facebook...)
+     až bude na serveru opravdu nahraná photos/hero.jpg. Do té doby se u sdílení
+     odkazu žádný obrázek nezobrazí, ale odkaz i tak funguje normálně. -->
+
+<!--
+  ===========================================================================
+  POZNÁMKA PRO MARTINA — jak doplnit fotky a video
+  ===========================================================================
+  1) FOTKY: vytvoř vedle index.html složku "photos" a vlož tam soubory
+     s přesně těmito názvy (nahradí se automaticky, nic dalšího měnit netřeba):
+
+       photos/hero.jpg            – velká úvodní fotka (nejhezčí, na výšku i šířku ok)
+       photos/o-nas.jpg           – fotka chalupy/dvora k textu "O chalupě"
+       photos/pokoj-jednolizko.jpg
+       photos/pokoj-dvoulizko.jpg
+       photos/pokoj-mezonet.jpg
+       photos/galerie-vjezd.jpg
+       photos/galerie-parkoviste.jpg
+       photos/galerie-restaurace.jpg
+       photos/galerie-terasa.jpg
+       photos/galerie-kryta-terasa.jpg
+       photos/galerie-interier.jpg
+       photos/svatba.jpg           – fotka k sekci "Svatby & akce" (např. vyzdobená terasa, tabule)
+       photos/logo.png             – (už doplněno) logo v hlavičce a patičce
+
+     A ještě fotky k sekci "Výlety" (mohou být i "od oka" z internetu/vlastní,
+     hlavně ať jsou legální k použití):
+
+       photos/vylet-rybnik.jpg
+       photos/vylet-cerchov.jpg
+       photos/vylet-aquacentrum.jpg
+
+     Až tam fotky budou, buď mi je pošli a já přepíšu CSS pozadí na <img>,
+     nebo (rychlejší) v souboru níže najdi třídu ".ph" u daného bloku
+     a nahraď <div class="ph" ...> za <img src="photos/NAZEV.jpg" alt="...">.
+
+  2) VIDEO: vytvoř složku "media" a vlož tam soubor:
+
+       media/video.mp4
+
+     Pak v sekci "VIDEO" níže odkomentuj blok <video> a smaž/zakomentuj
+     placeholder div s třídou "video-ph".
+
+  3) LOGO: teď se používá tvůj skutečný obrázek photos/logo.png (v hlavičce
+     i v patičce, třída "brand-logo"). Pokud budeš mít novější/vyšší
+     rozlišení verze loga, stačí soubor photos/logo.png přepsat stejným
+     názvem — nikde jinde nic měnit netřeba.
+  ===========================================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400..600&family=Karla:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --cream:#F6F2E9;
+    --cream-2:#EBE3D2;
+    --ink:#1C2420;
+    --ink-soft:#4A5750;
+    --pine:#33503F;
+    --pine-dark:#1B2921;
+    --barn:#DA4D27;
+    --barn-dark:#B33F1D;
+    --oak:#8A8371;
+    --gold:#C9A55C;
+    --line: rgba(28,36,30,0.14);
+    --shadow: 0 16px 34px -18px rgba(20,26,20,0.28);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Karla', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+  }
+  .phone-badge .phone-ico::after{animation-duration:2.2s !important;}
+
+  h1,h2,h3,h4{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    line-height:1.08;
+    letter-spacing:-0.01em;
+    margin:0;
+    color:var(--ink);
+  }
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 28px;}
+  .eyebrow{
+    font-family:'Karla', sans-serif; font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.16em;
+    font-size:12.5px;
+    color:var(--barn);
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px; height:1px; background:var(--barn);
+    display:inline-block;
+  }
+  :focus-visible{
+    outline:3px solid var(--gold);
+    outline-offset:3px;
+  }
+  .skip-link{
+    position:absolute; left:12px; top:-60px;
+    background:var(--barn); color:var(--cream);
+    padding:10px 18px; border-radius:8px; z-index:200;
+    font-family:'Karla', sans-serif; font-weight:700; font-size:14px;
+    transition:top .18s ease;
+  }
+  .skip-link:focus{top:12px;}
+
+  /* ---------- section divider: hairline + roofline mark ---------- */
+  .divider-mark{
+    display:flex; align-items:center; gap:18px;
+    padding:36px 28px;
+  }
+  .divider-mark::before, .divider-mark::after{
+    content:""; flex:1; height:1px; background:var(--line);
+  }
+  .divider-mark svg{width:24px; height:20px; flex-shrink:0;}
+  .divider-mark path{fill:none; stroke:var(--barn); stroke-width:6; stroke-linecap:round; stroke-linejoin:round;}
+
+  /* ---------- placeholder photo blocks ---------- */
+  .ph{
+    position:relative;
+    background:
+      linear-gradient(160deg, rgba(255,255,255,0.10), transparent 55%),
+      repeating-linear-gradient(135deg, rgba(255,255,255,0.06) 0 2px, transparent 2px 14px),
+      linear-gradient(135deg, var(--oak), var(--pine) 65%, var(--pine-dark));
+    display:flex;
+    align-items:flex-end;
+    min-height:180px;
+    overflow:hidden;
+  }
+  img.ph{
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+  .ph-label{
+    font-family:'Karla', sans-serif; font-weight:700;
+    font-size:11.5px;
+    letter-spacing:0.02em;
+    color:var(--cream);
+    background:rgba(20,26,20,0.55);
+    padding:6px 11px;
+    border-radius:999px;
+    margin:14px;
+    backdrop-filter:blur(2px);
+  }
+
+  /* ================= HEADER ================= */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(245,243,234,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:10px 28px;
+  }
+  .brand{display:flex; flex-direction:column; align-items:flex-start; gap:2px;}
+  .brand-text{display:flex; flex-direction:column; line-height:1;}
+  .brand .sub{font-family:'Karla', sans-serif; font-weight:700; font-size:10.5px; text-transform:uppercase; letter-spacing:0.14em; color:var(--barn); margin-top:6px; white-space:nowrap;}
+  .brand-logo{height:58px; width:auto; display:block;}
+  .nav-links{display:flex; gap:20px; align-items:center; flex-wrap:nowrap;}
+  .nav-links a{font-size:14px; font-weight:600; color:var(--ink-soft); position:relative; white-space:nowrap;}
+  .nav-links a:hover{color:var(--barn);}
+  .nav-actions{display:flex; align-items:center; gap:14px;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:12px 22px;
+    border-radius:10px;
+    font-weight:700; font-size:14.5px;
+    border:1px solid transparent;
+    cursor:pointer;
+    transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{background:var(--barn); color:var(--cream);}
+  .btn-primary:hover{background:var(--barn-dark); transform:translateY(-1px); box-shadow:var(--shadow);}
+  .btn-ghost{background:transparent; color:var(--ink); border-color:var(--line);}
+  .btn-ghost:hover{border-color:var(--ink); }
+  .phone-pill{font-family:'Karla', sans-serif; font-weight:700; font-size:13px; color:var(--pine); display:none; white-space:nowrap;}
+  .burger{display:none; background:none; border:none; cursor:pointer; padding:6px;}
+  .burger span{display:block; width:24px; height:2px; background:var(--ink); margin:5px 0;}
+
+  /* ================= HERO ================= */
+  .hero{
+    padding:14px 0 0;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns: 0.88fr 1.12fr;
+    gap:40px;
+    align-items:start;
+  }
+  .hero h1{
+    font-family:'Karla', sans-serif;
+    font-weight:800;
+    font-size:clamp(28px, 3.4vw, 42px);
+    line-height:1.05;
+    letter-spacing:-0.01em;
+    margin:6px 0 8px;
+  }
+  .hero p.lede{
+    font-size:14.5px;
+    color:var(--ink-soft);
+    max-width:46ch;
+    margin-bottom:8px;
+  }
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap; margin:2px 0 0;}
+  .hero-rule{width:140px; height:14px; color:var(--barn); display:block; margin:2px 0 10px;}
+  .hero-rule path{fill:none; stroke:currentColor; stroke-width:5; stroke-linecap:round; stroke-linejoin:round;}
+
+  .hero-checklist{
+    list-style:none; margin:0 0 14px; padding:0;
+    display:flex; flex-direction:column; gap:6px;
+  }
+  .hero-checklist li{
+    display:flex; align-items:center; gap:11px;
+    font-size:15.5px; font-weight:500; color:var(--ink);
+  }
+  .hero-checklist .check-ico{
+    flex-shrink:0; width:18px; height:18px;
+    color:var(--barn);
+  }
+  .phone-badge{
+    display:inline-flex; align-items:center; gap:14px;
+    background:var(--barn); color:var(--cream);
+    padding:16px 28px; border-radius:999px;
+    font-weight:800; font-size:19px;
+    box-shadow:var(--shadow);
+    transition:transform .18s ease, background .18s ease;
+  }
+  .phone-badge:hover{background:var(--barn-dark); transform:translateY(-1px);}
+  .phone-badge .phone-ico{
+    position:relative;
+    width:34px; height:34px; border-radius:50%;
+    background:rgba(245,243,234,0.2);
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+    font-size:16px;
+  }
+  .phone-badge .phone-ico::after{
+    content:"";
+    position:absolute; inset:-3px;
+    border-radius:50%;
+    border:2px solid rgba(245,243,234,0.75);
+    animation:phone-pulse 2.2s ease-out infinite;
+  }
+  @keyframes phone-pulse{
+    0%{transform:scale(1); opacity:0.9;}
+    80%{transform:scale(1.7); opacity:0;}
+    100%{transform:scale(1.7); opacity:0;}
+  }
+
+  .hero-media{
+    position:relative;
+    padding-bottom:46px;
+  }
+  .hero-photo{
+    position:relative;
+    overflow:hidden;
+    border-radius:14px;
+    border:1px solid var(--line);
+  }
+  .hero-photo .ph{
+    width:100%;
+    aspect-ratio:3/2;
+  }
+  .hero-media .badge{
+    position:absolute;
+    left:-60px; bottom:0px;
+    background:var(--ink);
+    color:var(--cream);
+    padding:12px 16px;
+    border-radius:8px;
+    box-shadow:var(--shadow);
+    max-width:200px;
+    opacity:0;
+  }
+  .hero-media .badge::before{
+    content:"";
+    position:absolute; inset:-10px;
+    border-radius:14px;
+    border:2px solid var(--gold);
+    opacity:0;
+    pointer-events:none;
+  }
+  .hero-media.in .badge{
+    animation:badge-flyin .7s cubic-bezier(.2,.8,.2,1) .35s forwards;
+  }
+  .hero-media.in .badge::before{
+    animation:badge-impact-ring .5s ease-out .72s;
+  }
+  @keyframes badge-flyin{
+    0%{opacity:0; transform:translate(70px,-55px) scale(0.55) rotate(22deg);}
+    55%{opacity:1; transform:translate(-6px,4px) scale(1.14) rotate(-7deg);}
+    75%{transform:translate(2px,-2px) scale(0.96) rotate(2deg);}
+    90%{transform:translate(-1px,1px) scale(1.02) rotate(-1deg);}
+    100%{opacity:1; transform:translate(0,0) scale(1) rotate(0deg);}
+  }
+  @keyframes badge-impact-ring{
+    0%{opacity:0.9; transform:scale(0.8);}
+    100%{opacity:0; transform:scale(1.4);}
+  }
+  .hero-media .badge .num{font-family:'Fraunces', serif; font-size:29px; font-weight:600; color:var(--gold);}
+  .hero-media .badge .txt{font-size:13.5px; margin-top:3px; color:var(--cream); line-height:1.35;}
+
+  /* ================= FACTS STRIP ================= */
+  .facts{
+    background:var(--barn);
+    color:var(--cream);
+    margin-top:64px;
+  }
+  .facts .wrap{
+    display:flex; flex-wrap:wrap; justify-content:space-between; gap:18px;
+    padding:26px 28px;
+    font-family:'Karla', sans-serif; font-weight:700; font-size:13px; letter-spacing:0.02em;
+  }
+  .facts .wrap span{display:flex; align-items:center; gap:9px;}
+  .facts .wrap span::before{content:"•"; color:rgba(246,242,233,0.65); font-size:9px;}
+
+  /* ================= SECTION generic ================= */
+  section{padding:112px 0;}
+  .section-head{max-width:640px; margin-bottom:52px;}
+  .section-head h2{font-size:clamp(30px,3.4vw,42px); margin-top:16px;}
+  .section-head p{color:var(--ink-soft); margin-top:14px; font-size:17px;}
+
+  /* ================= O NÁS ================= */
+  .about{
+    display:grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap:64px;
+    align-items:center;
+  }
+  .about .ph{
+    clip-path: polygon(0% 0%, 84% 0%, 100% 15%, 100% 100%, 0% 100%);
+    aspect-ratio:4/5;
+    filter: drop-shadow(0 18px 28px rgba(20,26,20,0.28));
+  }
+  .about-copy p{color:var(--ink-soft); margin:0 0 16px; font-size:16.5px;}
+  .about-copy .lang-note{
+    margin-top:22px;
+    display:inline-flex; gap:10px; align-items:center;
+    font-family:'Karla', sans-serif; font-weight:700; font-size:12.5px;
+    color:var(--pine);
+    border:1px solid var(--line);
+    padding:10px 16px; border-radius:999px;
+  }
+
+  /* ================= POKOJE ================= */
+  .rooms-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:28px;
+  }
+  .room-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:10px;
+    overflow:hidden;
+    transition:transform .22s ease, box-shadow .22s ease;
+  }
+  .room-card:hover{transform:translateY(-6px); box-shadow:var(--shadow);}
+  .room-card .ph{
+    height:200px;
+  }
+  .room-photos{position:relative; height:100%; overflow:hidden;}
+  .room-card .room-photos{height:200px;}
+  .room-photos .ph{
+    position:absolute; inset:0; height:100%;
+    opacity:0; transition:opacity .45s ease;
+  }
+  .room-photos .ph.active{opacity:1;}
+  .room-dots{
+    position:absolute; z-index:2; bottom:12px; left:50%; transform:translateX(-50%);
+    display:flex; gap:7px;
+  }
+  .room-dot{
+    width:8px; height:8px; border-radius:50%;
+    background:rgba(255,255,255,0.55); border:1px solid rgba(0,0,0,0.15);
+    cursor:pointer; padding:0;
+  }
+  .room-dot.active{background:var(--cream);}
+  .room-nav{
+    position:absolute; z-index:2; top:50%; transform:translateY(-50%);
+    width:32px; height:32px; border-radius:50%; border:0;
+    background:rgba(20,26,20,0.45); color:var(--cream);
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer; font-size:16px; opacity:0; transition:opacity .2s ease, background .2s ease;
+  }
+  .room-photos:hover .room-nav{opacity:1;}
+  .room-nav:hover{background:rgba(20,26,20,0.7);}
+  .room-nav.prev{left:10px;}
+  .room-nav.next{right:10px;}
+  .room-card-body{padding:26px 24px 28px;}
+  .room-card-body .cap{
+    font-family:'Karla', sans-serif; font-weight:700; font-size:11.5px; text-transform:uppercase;
+    letter-spacing:0.12em; color:var(--barn); margin-bottom:8px; display:block;
+  }
+  .room-card-body h3{font-size:22px; margin-bottom:10px;}
+  .room-card-body p{color:var(--ink-soft); font-size:15px; margin:0;}
+  .rooms-note{
+    margin-top:32px;
+    display:flex; gap:12px; flex-wrap:wrap;
+    font-family:'Karla', sans-serif; font-weight:700; font-size:12.5px; color:var(--ink-soft);
+  }
+  .rooms-note span{
+    border:1px solid var(--line); padding:9px 15px; border-radius:999px;
+  }
+
+  /* ================= VIDEO ================= */
+  .video-section{background:var(--pine-dark); color:var(--cream);}
+  .video-section .section-head h2{color:var(--cream);}
+  .video-section .section-head p{color:rgba(245,243,234,0.72);}
+  .video-section .eyebrow{color:var(--gold);}
+  .video-section .eyebrow::before{background:var(--gold);}
+  .video-frame{
+    max-width:900px; margin:0 auto;
+    clip-path: polygon(0% 5%, 50% 0%, 100% 5%, 100% 100%, 0% 100%);
+    filter: drop-shadow(0 26px 42px rgba(0,0,0,0.5));
+    position:relative;
+  }
+  .video-ph{
+    aspect-ratio:16/10;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .video-ph .play{
+    width:84px; height:84px; border-radius:50%;
+    background:rgba(245,243,234,0.92);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 10px 30px rgba(0,0,0,0.35);
+  }
+  .video-ph .play::after{
+    content:"";
+    border-left:20px solid var(--pine-dark);
+    border-top:12px solid transparent;
+    border-bottom:12px solid transparent;
+    margin-left:5px;
+  }
+  .video-frame video{width:100%; display:block;}
+
+  /* ================= GALERIE ================= */
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    grid-auto-rows:220px;
+    gap:18px;
+  }
+  .gallery-grid .g-item{grid-column:span 1; grid-row:span 1;}
+  .gallery-grid .g-item:nth-child(1){grid-column:span 2; grid-row:span 2;}
+  .gallery-grid .g-item .ph{height:100%; border-radius:6px;}
+  .g-item .cap{
+    margin-top:10px;
+    font-size:13.5px; color:var(--ink-soft);
+    font-family:'Karla', sans-serif; font-weight:700;
+  }
+
+  /* ================= VÝLETY ================= */
+  .trips-scroll{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:24px;
+  }
+  .trip-card{
+    border:1px solid var(--line);
+    border-radius:10px;
+    overflow:hidden;
+    background:#fff;
+  }
+  .trip-card .ph{height:170px;}
+  .trip-card-body{padding:20px 22px 24px;}
+  .trip-card-body .cap{
+    font-family:'Karla', sans-serif; font-weight:700; font-size:11px; text-transform:uppercase;
+    letter-spacing:0.1em; color:var(--barn);
+  }
+  .trip-card-body h3{font-size:19px; margin:8px 0 8px;}
+  .trip-card-body p{font-size:14.5px; color:var(--ink-soft); margin:0;}
+  .trip-card-body a.more{
+    display:inline-block; margin-top:12px; font-size:13.5px; font-weight:700; color:var(--pine);
+    border-bottom:1px solid var(--pine);
+  }
+
+  /* ================= RECENZE ================= */
+  .reviews{background:var(--cream-2);}
+  .reviews-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:26px;
+  }
+  .review-card{
+    background:var(--cream);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:28px 26px;
+  }
+  .review-card .quote{font-family:'Karla', sans-serif; font-weight:500; font-size:16.5px; line-height:1.5; color:var(--ink);}
+  .review-card .who{
+    margin-top:18px; display:flex; justify-content:space-between; align-items:center;
+    font-family:'Karla', sans-serif; font-weight:700; font-size:12px; color:var(--ink-soft);
+  }
+  .review-card .who strong{color:var(--barn); font-family:'Karla', sans-serif; font-size:14.5px;}
+
+  /* ================= KONTAKT ================= */
+  .contact{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:56px;
+  }
+  .contact-info h2{font-size:clamp(28px,3vw,38px); margin-bottom:20px;}
+  .contact-block{margin-bottom:26px;}
+  .contact-block .cap{
+    font-family:'Karla', sans-serif; font-weight:700; font-size:11.5px; text-transform:uppercase;
+    letter-spacing:0.12em; color:var(--barn); display:block; margin-bottom:6px;
+  }
+  .contact-block p{margin:0; color:var(--ink-soft);}
+  .contact-block a{color:var(--pine); font-weight:700;}
+  .map-frame{
+    border-radius:10px; overflow:hidden; border:1px solid var(--line);
+    box-shadow:var(--shadow);
+  }
+  .map-frame iframe{width:100%; height:260px; border:0; display:block;}
+
+  form.inquiry{
+    background:#fff; border:1px solid var(--line); border-radius:10px;
+    padding:32px; box-shadow:var(--shadow);
+  }
+  form.inquiry h3{font-size:22px; margin-bottom:6px;}
+  form.inquiry .hint{color:var(--ink-soft); font-size:14px; margin-bottom:22px;}
+  .field{margin-bottom:16px;}
+  .field label{
+    display:block; font-family:'Karla', sans-serif; font-weight:700; font-size:11.5px;
+    text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-soft); margin-bottom:7px;
+  }
+  .field input, .field textarea{
+    width:100%; padding:12px 14px; border-radius:10px;
+    border:1px solid var(--line); background:var(--cream);
+    font-family:'Karla', sans-serif; font-size:15px; color:var(--ink);
+  }
+  .field input:focus, .field textarea:focus{border-color:var(--pine);}
+  .field textarea{resize:vertical; min-height:100px;}
+  form.inquiry .btn{width:100%; justify-content:center; margin-top:6px;}
+
+  /* ================= FOOTER ================= */
+  footer{
+    background:var(--pine-dark); color:rgba(245,243,234,0.82);
+    padding:50px 0 26px;
+  }
+  .footer-grid{
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:32px;
+    padding-bottom:30px; border-bottom:1px solid rgba(245,243,234,0.14);
+  }
+  .footer-brand .sub{font-family:'Karla', sans-serif; font-weight:700; font-size:11px; color:var(--gold); letter-spacing:0.12em; margin-top:8px; display:block;}
+  .footer-brand .brand-logo.footer-logo{height:48px;}
+  .footer-links{display:flex; gap:60px; flex-wrap:wrap;}
+  .footer-col .cap{font-family:'Karla', sans-serif; font-weight:700; font-size:11px; text-transform:uppercase; letter-spacing:0.12em; color:var(--gold); margin-bottom:12px; display:block;}
+  .footer-col a, .footer-col p{display:block; font-size:14px; margin-bottom:8px; color:rgba(245,243,234,0.78);}
+  .footer-bottom{
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    padding-top:22px; font-size:12.5px; color:rgba(245,243,234,0.55);
+  }
+
+  /* ---------- reveal on scroll ---------- */
+  .reveal{opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  /* ================= RESPONSIVE ================= */
+  @media (min-width:1301px){ .phone-pill{display:inline-flex; align-items:center; gap:8px;} }
+
+  @media (max-width:1300px){
+    .nav-links, .phone-pill{display:none;}
+    .burger{display:block;}
+    .nav-links.open{
+      display:flex; position:absolute; top:100%; left:0; right:0;
+      background:var(--cream); flex-direction:column; padding:20px 28px; gap:18px;
+      border-bottom:1px solid var(--line);
+    }
+  }
+
+  @media (max-width:980px){
+    .hero-grid{grid-template-columns:1fr; gap:40px;}
+    .hero-media{order:-1;}
+    .hero-photo .ph{aspect-ratio:3/2;}
+    .about{grid-template-columns:1fr;}
+    .about .ph{aspect-ratio:16/10;}
+    .rooms-grid{grid-template-columns:1fr 1fr;}
+    .gallery-grid{grid-template-columns:repeat(2,1fr);}
+    .gallery-grid .g-item:nth-child(1){grid-column:span 2;}
+    .trips-scroll{grid-template-columns:1fr 1fr;}
+    .reviews-grid{grid-template-columns:1fr 1fr;}
+    .contact{grid-template-columns:1fr;}
+  }
+  @media (max-width:680px){
+    .rooms-grid{grid-template-columns:1fr;}
+    .gallery-grid{grid-template-columns:1fr;}
+    .gallery-grid .g-item:nth-child(1){grid-column:span 1;}
+    .trips-scroll{grid-template-columns:1fr;}
+    .reviews-grid{grid-template-columns:1fr;}
+    section{padding:64px 0;}
+    .facts .wrap{justify-content:flex-start;}
+  }
+
+  /* ---------- mobile call bar ---------- */
+  .mobile-callbar{display:none;}
+  @media (max-width:680px){
+    body{padding-bottom:64px;}
+    .mobile-callbar{
+      display:block;
+      position:fixed; left:0; right:0; bottom:0; z-index:100;
+      box-shadow:0 -8px 20px rgba(20,26,20,0.25);
+    }
+    .mobile-callbar a{
+      display:flex; align-items:center; justify-content:center; gap:10px;
+      padding:16px 20px;
+      background:var(--barn); color:var(--cream);
+      font-family:'Karla', sans-serif; font-weight:700; font-size:15px;
+    }
+  }
+  body.cookie-pending .mobile-callbar{display:none;}
+
+  /* ---------- cookie consent ---------- */
+  .cookie-banner{
+    position:fixed; left:0; right:0; bottom:0; z-index:300;
+    background:var(--ink); color:var(--cream);
+    padding:20px 28px;
+    display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px;
+    box-shadow:0 -10px 30px rgba(0,0,0,0.35);
+  }
+  .cookie-banner[hidden]{display:none;}
+  .cookie-banner-text p{margin:0; font-size:14px; line-height:1.5; max-width:640px; color:rgba(245,243,234,0.9);}
+  .cookie-banner-actions{display:flex; gap:10px; flex-wrap:wrap;}
+  .cookie-banner .btn{padding:11px 18px; font-size:13.5px; white-space:nowrap;}
+  .cookie-banner .btn-ghost{border-color:rgba(245,243,234,0.35); color:var(--cream);}
+  .cookie-banner .btn-ghost:hover{border-color:var(--cream);}
+
+  .cookie-modal{
+    position:fixed; inset:0; z-index:301;
+    background:rgba(20,26,20,0.55);
+    display:flex; align-items:center; justify-content:center;
+    padding:20px;
+  }
+  .cookie-modal[hidden]{display:none;}
+  .cookie-modal-panel{
+    background:var(--cream); color:var(--ink);
+    border-radius:14px; max-width:460px; width:100%;
+    padding:28px; box-shadow:var(--shadow);
+    max-height:86vh; overflow-y:auto;
+  }
+  .cookie-modal-panel h3{font-size:20px; margin-bottom:16px;}
+  .cookie-modal-panel > p{font-size:13.5px; color:var(--ink-soft); margin:0 0 16px;}
+  .cookie-cat{border-top:1px solid var(--line); padding:14px 0;}
+  .cookie-cat:first-of-type{border-top:none;}
+  .cookie-cat-head{display:flex; align-items:center; justify-content:space-between; font-weight:700; font-family:'Karla', sans-serif; font-size:14.5px;}
+  .cookie-cat p{margin:6px 0 0; font-size:13px; color:var(--ink-soft);}
+  .cookie-cat input[type="checkbox"]{width:20px; height:20px; accent-color:var(--barn);}
+  .cookie-modal-actions{display:flex; justify-content:flex-end; gap:10px; margin-top:20px;}
+  .cookie-modal-actions .btn{padding:10px 18px; font-size:13.5px;}
+
+  @media (max-width:680px){
+    .cookie-banner{flex-direction:column; align-items:stretch;}
+    .cookie-banner-actions{justify-content:flex-end;}
+  }
+</style>
+
+<!-- Strukturovaná data pro Google (LodgingBusiness) — pomáhá zobrazení ve vyhledávání a mapách -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LodgingBusiness",
+  "name": "Selská chalupa Anetka",
+  "url": "https://www.selskachalupaanetka.cz/",
+  "description": "Ubytování v Českém lese v Březí u Horšovského Týna. 9 pokojů, snídaně v ceně, parkování zdarma.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Březí u Meclova 4",
+    "postalCode": "344 01",
+    "addressLocality": "Domažlice",
+    "addressCountry": "CZ"
+  },
+  "telephone": "+420605918891",
+  "email": "tesarovaaneta@gmail.com",
+  "checkinTime": "14:00",
+  "checkoutTime": "10:00"
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Přeskočit na obsah</a>
+
+<header>
+  <div class="nav wrap">
+    <div class="brand">
+      <img src="photos/logo.png" alt="Anetka — Selská chalupa" class="brand-logo">
+      <div class="brand-text">
+        <span class="sub">Selská chalupa · Český les</span>
+      </div>
+    </div>
+    <nav class="nav-links" id="navLinks">
+      <a href="#o-nas">O chalupě</a>
+      <a href="#pokoje">Pokoje</a>
+      <a href="#video">Video</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#vylety">Výlety</a>
+      <a href="#svatby">Svatby &amp; akce</a>
+      <a href="#recenze">Recenze</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <div class="nav-actions">
+      <span class="phone-pill"><span aria-hidden="true">☎</span> +420 605 918 891</span>
+      <a href="https://www.booking.com/Share-CLIAapU" target="_blank" rel="noopener" class="btn btn-ghost">Booking.com</a>
+      <a href="#kontakt" class="btn btn-primary">Rezervovat pobyt</a>
+      <button class="burger" id="burgerBtn" aria-label="Otevřít menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Relax v Českém lese</span>
+        <h1>Selská chalupa Anetka</h1>
+        <svg class="hero-rule" viewBox="0 0 170 16" aria-hidden="true"><path d="M3,11 C24,3 40,15 61,8 C82,1 98,15 119,7 C134,2 150,10 167,5"/></svg>
+        <p class="lede">Devět pokojů, snídaně, krytá terasa s grilem a klid vesničky pár kroků od hranice s Bavorskem. U nás se domluvíte česky i německy.</p>
+
+        <ul class="hero-checklist">
+          <li>
+            <svg class="check-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            9 pokojů — jednolůžkové, dvoulůžkové i mezonety
+          </li>
+          <li>
+            <svg class="check-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Parkování v areálu zdarma
+          </li>
+          <li>
+            <svg class="check-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Snídaně v ceně pobytu
+          </li>
+          <li>
+            <svg class="check-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Otevřeno celoročně
+          </li>
+          <li>
+            <svg class="check-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Pořádáme i <a href="#svatby" style="text-decoration:underline; text-underline-offset:2px;">svatby &amp; akce</a>
+          </li>
+        </ul>
+
+        <div class="hero-ctas">
+          <a href="#pokoje" class="btn btn-primary">Zobrazit pokoje</a>
+          <a href="tel:+420605918891" class="phone-badge">
+            <span class="phone-ico" aria-hidden="true">☎</span>
+            +420 605 918 891
+          </a>
+        </div>
+      </div>
+      <div class="hero-media reveal">
+        <div class="hero-photo">
+          <img src="photos/hero.jpg" alt="Selská chalupa Anetka — pohled na chalupu" fetchpriority="high" decoding="async" class="ph">
+        </div>
+        <div class="badge">
+          <div class="num">9</div>
+          <div class="txt">pokojů — jednolůžkové, dvoulůžkové i mezonety</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="divider-mark" aria-hidden="true">
+      <svg viewBox="0 0 40 34"><path d="M4,30 L20,6 L36,30"/></svg>
+    </div>
+  </div>
+
+  <!-- ================= FACTS ================= -->
+  <div class="facts">
+    <div class="wrap">
+      <span>9 pokojů s vlastním sociálním zařízením</span>
+      <span>Parkování v areálu zdarma</span>
+      <span>Snídaně v ceně pobytu</span>
+      <span>Krytá terasa, gril a udírna</span>
+      <span>Mluvíme česky a německy</span>
+    </div>
+  </div>
+
+  <!-- ================= O NÁS ================= -->
+  <section id="o-nas">
+    <div class="wrap about">
+      <div class="reveal">
+        <img src="photos/o-nas.jpg" alt="Selská chalupa Anetka — exteriér" loading="lazy" decoding="async" class="ph">
+      </div>
+      <div class="about-copy reveal">
+        <span class="eyebrow">O chalupě</span>
+        <h2>Klidná vesnička, dva kroky od hranic</h2>
+        <p>Chalupa stojí v malebné vesničce Březí, na hlavní silniční trase z Plzně na hraniční přechod Folmava. K dispozici máme celkem 9 pokojů — jednolůžkové, dvoulůžkové i mezonety — a každý má vlastní koupelnu s WC. Hosté mohou využít krytou venkovní terasu, mini restauraci i venkovní gril.</p>
+        <p>Kousek odsud je Horšovský Týn se zámkem, zámeckým parkem a náměstím, opačným směrem pak Domažlice s šikmou věží, městským pivovarem, muzeem Chodska a Aquacentrem s tobogánem. Turisté míří i na Čerchov, nejvyšší horu Českého lesa s rozhlednou na vrcholu, cyklisté po místních trasách dojedou až do bavorského Furth im Wald nebo Waldmünchenu. Kousek od chalupy je i velký rybník — po domluvě s porybným si tu zarybaří i vášnivý rybář.</p>
+        <span class="lang-note">🗣 Domluvíme se česky i německy</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= POKOJE ================= -->
+  <section id="pokoje" style="background:var(--cream-2);">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Ubytování</span>
+        <h2>Pokoje pro 1 až 5 osob</h2>
+        <p>Každý pokoj má vlastní sociální zařízení. Snídaně je v ceně pobytu, check-in od 14:00, check-out do 10:00.</p>
+      </div>
+      <div class="rooms-grid">
+        <div class="room-card reveal">
+          <div class="room-photos" data-images="photos/pokoj-jednolizko.jpg,photos/pokoj-jednolizko-2.jpg">
+            <img src="photos/pokoj-jednolizko.jpg" alt="Jednolůžkový pokoj" loading="lazy" decoding="async" class="ph active">
+            <img src="photos/pokoj-jednolizko-2.jpg" alt="Jednolůžkový pokoj" loading="lazy" decoding="async" class="ph">
+          </div>
+          <div class="room-card-body">
+            <span class="cap">Pro 1 osobu</span>
+            <h3>Jednolůžkový pokoj</h3>
+            <p>Komfortní pokoj s vlastní koupelnou a WC — ideální pro cestu na jeden nebo dva noclehy.</p>
+          </div>
+        </div>
+        <div class="room-card reveal">
+          <div class="room-photos" data-images="photos/pokoj-dvoulizko.jpg,photos/pokoj-dvoulizko-2.jpg,photos/pokoj-dvoulizko-3.jpg">
+            <img src="photos/pokoj-dvoulizko.jpg" alt="Dvoulůžkový pokoj" loading="lazy" decoding="async" class="ph active">
+            <img src="photos/pokoj-dvoulizko-2.jpg" alt="Dvoulůžkový pokoj" loading="lazy" decoding="async" class="ph">
+            <img src="photos/pokoj-dvoulizko-3.jpg" alt="Dvoulůžkový pokoj" loading="lazy" decoding="async" class="ph">
+          </div>
+          <div class="room-card-body">
+            <span class="cap">Pro 2 osoby</span>
+            <h3>Dvoulůžkový pokoj</h3>
+            <p>Prostorný pokoj s vlastní koupelnou a WC, vhodný pro páry i přátele na výletě.</p>
+          </div>
+        </div>
+        <div class="room-card reveal">
+          <div class="room-photos" data-images="photos/pokoj-mezonet-4.jpg,photos/pokoj-mezonet.jpg,photos/pokoj-mezonet-2.jpg,photos/pokoj-mezonet-3.jpg">
+            <img src="photos/pokoj-mezonet-4.jpg" alt="Mezonet" loading="lazy" decoding="async" class="ph active">
+            <img src="photos/pokoj-mezonet.jpg" alt="Mezonet" loading="lazy" decoding="async" class="ph">
+            <img src="photos/pokoj-mezonet-2.jpg" alt="Mezonet" loading="lazy" decoding="async" class="ph">
+            <img src="photos/pokoj-mezonet-3.jpg" alt="Mezonet" loading="lazy" decoding="async" class="ph">
+          </div>
+          <div class="room-card-body">
+            <span class="cap">Pro 3–5 osob</span>
+            <h3>Mezonet</h3>
+            <p>Dvoupodlažní ubytování s vlastním sociálním zařízením a možností přistýlky — pro rodiny i skupiny.</p>
+          </div>
+        </div>
+      </div>
+      <div class="rooms-note">
+        <span>Celkem 9 pokojů v areálu</span>
+        <span>Check-in od 14:00</span>
+        <span>Check-out do 10:00</span>
+        <span>Recepce Po–Pá 09:00–15:00</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= VIDEO ================= -->
+  <section id="video" class="video-section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Podívejte se k nám</span>
+        <h2>Chalupa v pohybu</h2>
+        <p>Krátká procházka po dvoře, pokojích a okolí — ať víte přesně, kam jedete.</p>
+      </div>
+      <div class="video-frame reveal">
+        <video controls autoplay muted playsinline poster="photos/hero.jpg" style="width:100%; display:block;">
+          <source src="media/video.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= GALERIE ================= -->
+  <section id="galerie">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Galerie</span>
+        <h2>Prohlídka areálu</h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="g-item reveal">
+          <img src="photos/galerie-vjezd.jpg" alt="Hlavní vjezd do areálu" loading="lazy" decoding="async" class="ph">
+          <div class="cap">Hlavní vjezd do areálu — přístup z návsi</div>
+        </div>
+        <div class="g-item reveal">
+          <img src="photos/galerie-parkoviste.jpg" alt="Parkoviště" loading="lazy" decoding="async" class="ph">
+          <div class="cap">Parkoviště — zdarma pro hosty</div>
+        </div>
+        <div class="g-item reveal">
+          <div class="room-photos" data-images="photos/galerie-restaurace.jpg,photos/galerie-restaurace-2.jpg,photos/galerie-restaurace-3.jpg,photos/galerie-restaurace-4.jpg">
+            <img src="photos/galerie-restaurace.jpg" alt="Minirestaurace a jídelna" loading="lazy" decoding="async" class="ph active">
+            <img src="photos/galerie-restaurace-2.jpg" alt="Minirestaurace a jídelna" loading="lazy" decoding="async" class="ph">
+            <img src="photos/galerie-restaurace-3.jpg" alt="Minirestaurace a jídelna" loading="lazy" decoding="async" class="ph">
+            <img src="photos/galerie-restaurace-4.jpg" alt="Minirestaurace a jídelna" loading="lazy" decoding="async" class="ph">
+          </div>
+          <div class="cap">Minirestaurace a jídelna</div>
+        </div>
+        <div class="g-item reveal">
+          <img src="photos/galerie-terasa.jpg" alt="Terasa s grilem a udírnou" loading="lazy" decoding="async" class="ph">
+          <div class="cap">Terasa s grilem a udírnou</div>
+        </div>
+        <div class="g-item reveal">
+          <img src="photos/galerie-kryta-terasa.jpg" alt="Krytá terasa" loading="lazy" decoding="async" class="ph">
+          <div class="cap">Krytá terasa</div>
+        </div>
+        <div class="g-item reveal">
+          <img src="photos/galerie-interier.jpg" alt="Interiér — točité schodiště" loading="lazy" decoding="async" class="ph">
+          <div class="cap">Interiér — točité schodiště</div>
+        </div>
+        <div class="g-item reveal">
+          <img src="photos/galerie-virivka.jpg" alt="Vyhřívaná vířivka na zahradě" loading="lazy" decoding="async" class="ph">
+          <div class="cap">Vyhřívaná vířivka na zahradě</div>
+        </div>
+        <div class="g-item reveal">
+          <img src="photos/galerie-kulecnik.jpg" alt="Kulečník" loading="lazy" decoding="async" class="ph">
+          <div class="cap">Kulečník</div>
+        </div>
+        <div class="g-item reveal">
+          <img src="photos/galerie-gril.jpg" alt="Grilování na terase" loading="lazy" decoding="async" class="ph">
+          <div class="cap">Grilování na terase</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= VÝLETY ================= -->
+  <section id="vylety" style="background:var(--cream-2);">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">V okolí</span>
+        <h2>Výlety po okolí</h2>
+        <p>Pro turisty, cyklisty i rybáře — v okolí chalupy je co objevovat celoročně.</p>
+      </div>
+      <div class="trips-scroll">
+        <div class="trip-card reveal">
+          <img src="photos/vylet-rybnik.jpg" alt="Rybník Březí" loading="lazy" decoding="async" class="ph">
+          <div class="trip-card-body">
+            <span class="cap">Rybník Březí</span>
+            <h3>Rybolov</h3>
+            <p>Velký rybník kousek od chalupy — po domluvě s porybným.</p>
+            <a class="more" href="http://www.rybnikbrezi.cz/" target="_blank" rel="noopener">Více info →</a>
+          </div>
+        </div>
+        <div class="trip-card reveal">
+          <img src="photos/vylet-cerchov.jpg" alt="Výhled z rozhledny Čerchov" loading="lazy" decoding="async" class="ph">
+          <div class="trip-card-body">
+            <span class="cap">Čerchov</span>
+            <h3>Pěší turistika</h3>
+            <p>Nejvyšší hora Českého lesa s rozhlednou na vrcholu.</p>
+            <a class="more" href="https://www.sumavanet.cz/cerchov-rozhledna-1041-n-m.s-19262-REALPA" target="_blank" rel="noopener">Více info →</a>
+          </div>
+        </div>
+        <div class="trip-card reveal">
+          <img src="photos/vylet-aquacentrum.jpg" alt="Aquacentrum Domažlice" loading="lazy" decoding="async" class="ph">
+          <div class="trip-card-body">
+            <span class="cap">Aquacentrum Domažlice</span>
+            <h3>Vodní svět</h3>
+            <p>Bazén a tobogán v nedalekých Domažlicích.</p>
+            <a class="more" href="https://www.sportoviste-domazlice.cz/aquacentrum/" target="_blank" rel="noopener">Více info →</a>
+          </div>
+        </div>
+        <div class="trip-card reveal">
+          <img src="photos/vylet-cyklotrasy.jpg" alt="Cyklisté na místní cyklotrase" loading="lazy" decoding="async" class="ph">
+          <div class="trip-card-body">
+            <span class="cap">Cyklotrasy</span>
+            <h3>Na kole až do Bavorska</h3>
+            <p>Místní cyklotrasy vás zavedou přes hranici až do Furth im Wald nebo Waldmünchenu.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SVATBY & AKCE ================= -->
+  <section id="svatby">
+    <div class="wrap about">
+      <div class="reveal">
+        <img src="photos/svatba.jpg" alt="Svatby a soukromé akce" loading="lazy" decoding="async" class="ph">
+      </div>
+      <div class="about-copy reveal">
+        <span class="eyebrow">Svatby &amp; soukromé akce</span>
+        <h2>Prostor i pro Váš velký den</h2>
+        <p>Chalupa je vhodná i pro pořádání svateb, oslav a soukromých akcí. Krytá terasa s grilem a udírnou poslouží jako zázemí pro hostinu, minirestaurace pokryje občerstvení a klidná náves v Březí dá celé akci ten správný venkovský klid — bez spěchu a bez sousedů za plotem.</p>
+        <p>Díky 9 pokojům se hosté nemusí nikam odvážet — mohou u nás rovnou přespat, ráno je čeká snídaně a Vy máte jistotu, že se všichni v pořádku dostanou do postele. Kapacitu, termín i konkrétní představu s Vámi rádi proberou přímo na recepci.</p>
+        <div class="rooms-note">
+          <span>Krytá terasa s grilem</span>
+          <span>Minirestaurace</span>
+          <span>Ubytování pro hosty na místě</span>
+          <span>Parkování zdarma</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= RECENZE ================= -->
+  <section id="recenze" class="reviews">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Hodnocení hostů</span>
+        <h2>Co o nás říkají</h2>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card reveal">
+          <p class="quote">„Velmi útulný rodinný podnik, moc milý personál a skvělá snídaně. Skutečně se zde člověk cítí jako doma a rádi se sem vrátíme.“</p>
+          <div class="who"><strong>Dominika</strong><span>říjen 2021</span></div>
+        </div>
+        <div class="review-card reveal">
+          <p class="quote">„Ubytování předčilo naše očekávání ve všech směrech. Pokoje skvělé, čistota na 100 %, vše voňavé a moc hezké. Majitelé velmi příjemní a starali se o nás skvěle.“</p>
+          <div class="who"><strong>Radka</strong><span>srpen 2021</span></div>
+        </div>
+        <div class="review-card reveal">
+          <p class="quote">„Čistota a krásné zařízení. Úžasně ochotný, vstřícný a komunikativní personál. Výjimečný zážitek — a výborné pivko.“</p>
+          <div class="who"><strong>Max</strong><span>září 2021</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= KONTAKT ================= -->
+  <section id="kontakt">
+    <div class="wrap contact">
+      <div class="contact-info reveal">
+        <span class="eyebrow">Kontakt</span>
+        <h2>Máte dotaz nebo si chcete zarezervovat pobyt?</h2>
+
+        <div class="contact-block">
+          <span class="cap">Adresa</span>
+          <p>Březí u Meclova 4<br>344 01 Domažlice</p>
+        </div>
+        <div class="contact-block">
+          <span class="cap">Recepce</span>
+          <p>Po – Pá: 09:00 – 15:00<br>
+          Telefon: <a href="tel:+420605918891">+420 605 918 891</a><br>
+          Check-in od 14:00 · Check-out do 10:00</p>
+        </div>
+        <div class="contact-block">
+          <span class="cap">E-mail</span>
+          <p><a href="mailto:tesarovaaneta@gmail.com">tesarovaaneta@gmail.com</a></p>
+        </div>
+        <div class="contact-block">
+          <span class="cap">Firemní údaje</span>
+          <p>IČ: 14721881 · DIČ: 119-7110092044</p>
+        </div>
+        <div class="contact-block">
+          <span class="cap">Rezervace online</span>
+          <p>Pokoj si můžete rezervovat i přímo přes <a href="https://www.booking.com/Share-CLIAapU" target="_blank" rel="noopener">Booking.com</a>.</p>
+        </div>
+
+        <div class="map-frame reveal">
+          <iframe
+            src="https://www.google.com/maps?q=B%C5%99ez%C3%AD%20u%20Meclova%204%2C%20344%2001%20Doma%C5%BElice&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Mapa — Březí u Meclova 4, Domažlice"></iframe>
+        </div>
+      </div>
+
+      <form class="inquiry reveal" id="inquiryForm" action="mailto:tesarovaaneta@gmail.com" method="post" enctype="text/plain">
+        <h3>Napište nám</h3>
+        <p class="hint">Odpovídáme obvykle do druhého pracovního dne.</p>
+        <noscript><p class="hint">Formulář vyžaduje k odeslání JavaScript. Pokud ho máte vypnutý, napište nám prosím rovnou na <a href="mailto:tesarovaaneta@gmail.com">tesarovaaneta@gmail.com</a>.</p></noscript>
+        <div class="field">
+          <label for="jmeno">Jméno a příjmení</label>
+          <input id="jmeno" name="jmeno" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="email">E-mail</label>
+          <input id="email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="telefon">Telefonní číslo</label>
+          <input id="telefon" name="telefon" type="tel" autocomplete="tel">
+        </div>
+        <div class="field">
+          <label for="zprava">Vaše zpráva</label>
+          <textarea id="zprava" name="zprava" required placeholder="Termín pobytu, počet osob, typ pokoje…"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Odeslat poptávku</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="photos/logo.png" alt="Anetka — Selská chalupa" loading="lazy" decoding="async" class="brand-logo footer-logo">
+        <div class="sub">Březí u Horšovského Týna · Český les</div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <span class="cap">Chalupa</span>
+          <a href="#o-nas">O chalupě</a>
+          <a href="#pokoje">Pokoje</a>
+          <a href="#galerie">Galerie</a>
+          <a href="#vylety">Výlety</a>
+          <a href="#svatby">Svatby &amp; akce</a>
+        </div>
+        <div class="footer-col">
+          <span class="cap">Kontakt</span>
+          <p>Březí u Meclova 4, 344 01 Domažlice</p>
+          <a href="tel:+420605918891">+420 605 918 891</a>
+          <a href="mailto:tesarovaaneta@gmail.com">tesarovaaneta@gmail.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Selská chalupa Anetka</span>
+      <span>IČ: 14721881 · DIČ: 119-7110092044</span>
+      <span>Vytvořil <a href="https://www.pckucera.cz/" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">pckucera.cz</a></span>
+      <span><a href="#" id="cookieSettingsReopen" style="color:inherit; text-decoration:underline;">Nastavení cookies</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="mobile-callbar">
+  <a href="tel:+420605918891">
+    <span aria-hidden="true">☎</span> Zavolat +420 605 918 891
+  </a>
+</div>
+
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Nastavení cookies" hidden>
+  <div class="cookie-banner-text">
+    <p><strong>Používáme cookies</strong> — nezbytné pro chod webu (např. zobrazení mapy) a se souhlasem i pro analýzu návštěvnosti a marketing.</p>
+  </div>
+  <div class="cookie-banner-actions">
+    <button type="button" class="btn btn-ghost" id="cookieSettingsBtn">Nastavení</button>
+    <button type="button" class="btn btn-ghost" id="cookieRejectBtn">Jen nezbytné</button>
+    <button type="button" class="btn btn-primary" id="cookieAcceptBtn">Přijmout vše</button>
+  </div>
+</div>
+
+<div class="cookie-modal" id="cookieModal" role="dialog" aria-modal="true" aria-label="Nastavení cookies" hidden>
+  <div class="cookie-modal-panel">
+    <h3>Nastavení cookies</h3>
+    <p>Vyberte, které kategorie cookies chcete povolit. Nastavení můžete kdykoliv změnit v patičce webu.</p>
+    <div class="cookie-cat">
+      <div class="cookie-cat-head">
+        <span>Nezbytné</span>
+        <input type="checkbox" checked disabled aria-label="Nezbytné cookies, vždy zapnuto">
+      </div>
+      <p>Nutné pro základní fungování webu (např. zobrazení mapy). Nelze vypnout.</p>
+    </div>
+    <div class="cookie-cat">
+      <div class="cookie-cat-head">
+        <span>Analytické</span>
+        <input type="checkbox" id="consentAnalytics">
+      </div>
+      <p>Pomáhají nám pochopit, jak web používáte (např. Google Analytics).</p>
+    </div>
+    <div class="cookie-cat">
+      <div class="cookie-cat-head">
+        <span>Marketingové</span>
+        <input type="checkbox" id="consentMarketing">
+      </div>
+      <p>Používají se pro cílenou reklamu (např. Facebook Pixel).</p>
+    </div>
+    <div class="cookie-modal-actions">
+      <button type="button" class="btn btn-ghost" id="cookieModalClose">Zrušit</button>
+      <button type="button" class="btn btn-primary" id="cookieModalSave">Uložit nastavení</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // mobile nav toggle
+  const burger = document.getElementById('burgerBtn');
+  const navLinks = document.getElementById('navLinks');
+  burger.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open);
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    burger.setAttribute('aria-expanded', false);
+  }));
+
+  // room photo carousels
+  document.querySelectorAll('.room-photos').forEach(box => {
+    const imgs = box.querySelectorAll('img');
+    if (imgs.length < 2) return;
+    let current = 0;
+
+    const dots = document.createElement('div');
+    dots.className = 'room-dots';
+    imgs.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'room-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', `Fotka ${i + 1}`);
+      dot.addEventListener('click', () => show(i));
+      dots.appendChild(dot);
+    });
+    box.appendChild(dots);
+
+    const prev = document.createElement('button');
+    prev.type = 'button';
+    prev.className = 'room-nav prev';
+    prev.setAttribute('aria-label', 'Předchozí fotka');
+    prev.innerHTML = '‹';
+    prev.addEventListener('click', () => show(current - 1));
+    box.appendChild(prev);
+
+    const next = document.createElement('button');
+    next.type = 'button';
+    next.className = 'room-nav next';
+    next.setAttribute('aria-label', 'Další fotka');
+    next.innerHTML = '›';
+    next.addEventListener('click', () => show(current + 1));
+    box.appendChild(next);
+
+    function show(i){
+      current = (i + imgs.length) % imgs.length;
+      imgs.forEach((img, idx) => img.classList.toggle('active', idx === current));
+      dots.querySelectorAll('.room-dot').forEach((d, idx) => d.classList.toggle('active', idx === current));
+    }
+  });
+
+  // scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('in'));
+  }
+
+  // contact form -> mailto fallback (no backend on static hosting)
+  document.getElementById('inquiryForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const jmeno = this.jmeno.value, email = this.email.value, telefon = this.telefon.value, zprava = this.zprava.value;
+    const subject = encodeURIComponent('Poptávka ubytování — Selská chalupa Anetka');
+    const body = encodeURIComponent(`Jméno: ${jmeno}\nE-mail: ${email}\nTelefon: ${telefon}\n\nZpráva:\n${zprava}`);
+    window.location.href = `mailto:tesarovaaneta@gmail.com?subject=${subject}&body=${body}`;
+  });
+
+  // cookie consent
+  const COOKIE_KEY = 'anetkaCookieConsent';
+
+  function getConsent(){
+    try{
+      const raw = localStorage.getItem(COOKIE_KEY);
+      return raw ? JSON.parse(raw) : null;
+    }catch(e){ return null; }
+  }
+  function saveConsent(consent){
+    localStorage.setItem(COOKIE_KEY, JSON.stringify({ necessary:true, analytics:!!consent.analytics, marketing:!!consent.marketing, ts:Date.now() }));
+    applyConsent(consent);
+  }
+  function applyConsent(consent){
+    if (consent.analytics) loadAnalytics();
+    if (consent.marketing) loadMarketing();
+  }
+  function loadAnalytics(){
+    // TODO Martine: sem vlož skript Google Analytics / GA4, např.:
+    // const s = document.createElement('script'); s.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX'; s.async = true; document.head.appendChild(s);
+  }
+  function loadMarketing(){
+    // TODO Martine: sem vlož skript Facebook Pixel / jiného marketingového nástroje
+  }
+
+  const cookieBanner = document.getElementById('cookieBanner');
+  const cookieModal = document.getElementById('cookieModal');
+  const consentAnalytics = document.getElementById('consentAnalytics');
+  const consentMarketing = document.getElementById('consentMarketing');
+
+  function openCookieModal(existing){
+    consentAnalytics.checked = !!(existing && existing.analytics);
+    consentMarketing.checked = !!(existing && existing.marketing);
+    cookieModal.hidden = false;
+  }
+  function closeCookieModal(){ cookieModal.hidden = true; }
+  function hideCookieBanner(){
+    cookieBanner.hidden = true;
+    document.body.classList.remove('cookie-pending');
+  }
+
+  const existingConsent = getConsent();
+  if (!existingConsent){
+    document.body.classList.add('cookie-pending');
+    cookieBanner.hidden = false;
+  } else {
+    applyConsent(existingConsent);
+  }
+
+  document.getElementById('cookieAcceptBtn').addEventListener('click', () => {
+    saveConsent({ analytics:true, marketing:true });
+    hideCookieBanner();
+  });
+  document.getElementById('cookieRejectBtn').addEventListener('click', () => {
+    saveConsent({ analytics:false, marketing:false });
+    hideCookieBanner();
+  });
+  document.getElementById('cookieSettingsBtn').addEventListener('click', () => {
+    openCookieModal(existingConsent);
+  });
+  document.getElementById('cookieModalClose').addEventListener('click', closeCookieModal);
+  document.getElementById('cookieModalSave').addEventListener('click', () => {
+    const consent = { analytics:consentAnalytics.checked, marketing:consentMarketing.checked };
+    saveConsent(consent);
+    closeCookieModal();
+    hideCookieBanner();
+  });
+  document.getElementById('cookieSettingsReopen').addEventListener('click', (e) => {
+    e.preventDefault();
+    openCookieModal(getConsent());
+  });
+</script>
+
+</body>
+</html>
