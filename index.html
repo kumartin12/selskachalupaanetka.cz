@@ -487,11 +487,11 @@
     grid-auto-rows:auto;
     gap:18px;
   }
-  .gallery-grid .g-item{grid-column:span 1; grid-row:span 1;}
+  .gallery-grid .g-item{grid-column:span 1; grid-row:span 1; display:flex; flex-direction:column;}
   .gallery-grid .g-item:nth-child(1){grid-column:span 2; grid-row:span 2;}
-  .gallery-grid .g-item .ph{height:220px; width:100%; object-fit:cover; display:block; border-radius:6px;}
-  .gallery-grid .g-item:nth-child(1) .ph{height:100%;}
-  .gallery-grid .g-item .room-photos{height:220px;}
+  .gallery-grid .g-item .ph{flex:1; min-height:220px; width:100%; object-fit:cover; display:block; border-radius:6px;}
+  .gallery-grid .g-item .room-photos{flex:1; min-height:220px;}
+  .gallery-grid .g-item .room-photos .ph{height:100%; min-height:0;}
   .g-item .cap{
     margin-top:10px;
     font-size:13.5px; color:var(--ink-soft);
