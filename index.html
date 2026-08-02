@@ -582,6 +582,14 @@
   .field input:focus, .field textarea:focus{border-color:var(--pine);}
   .field textarea{resize:vertical; min-height:100px;}
   form.inquiry .btn{width:100%; justify-content:center; margin-top:6px;}
+  form.inquiry .btn[disabled]{opacity:0.6; cursor:not-allowed;}
+  .form-status{
+    margin-top:14px; font-family:'Karla', sans-serif; font-size:13.5px; font-weight:700;
+    text-align:center; display:none;
+  }
+  .form-status.show{display:block;}
+  .form-status.success{color:var(--pine);}
+  .form-status.error{color:var(--barn);}
 
   /* ================= FOOTER ================= */
   footer{
@@ -1102,10 +1110,14 @@
         </div>
       </div>
 
-      <form class="inquiry reveal" id="inquiryForm" action="mailto:tesarovaaneta@gmail.com" method="post" enctype="text/plain">
+      <form class="inquiry reveal" id="inquiryForm" action="https://api.web3forms.com/submit" method="post">
         <h3>Napište nám</h3>
         <p class="hint">Odpovídáme obvykle do druhého pracovního dne.</p>
         <noscript><p class="hint">Formulář vyžaduje k odeslání JavaScript. Pokud ho máte vypnutý, napište nám prosím rovnou na <a href="mailto:tesarovaaneta@gmail.com">tesarovaaneta@gmail.com</a>.</p></noscript>
+        <input type="hidden" name="access_key" value="b3cb4e2c-d51b-4e71-9889-7d03eba074e6">
+        <input type="hidden" name="subject" value="Poptávka ubytování — Selská chalupa Anetka">
+        <input type="hidden" name="from_name" value="Web selskachalupaanetka.cz">
+        <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
         <div class="field">
           <label for="jmeno">Jméno a příjmení</label>
           <input id="jmeno" name="jmeno" type="text" autocomplete="name" required>
@@ -1123,6 +1135,7 @@
           <textarea id="zprava" name="zprava" required placeholder="Termín pobytu, počet osob, typ pokoje…"></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Odeslat poptávku</button>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
       </form>
     </div>
   </section>
@@ -1278,14 +1291,45 @@
     revealEls.forEach(el => el.classList.add('in'));
   }
 
-  // contact form -> mailto fallback (no backend on static hosting)
-  document.getElementById('inquiryForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    const jmeno = this.jmeno.value, email = this.email.value, telefon = this.telefon.value, zprava = this.zprava.value;
-    const subject = encodeURIComponent('Poptávka ubytování — Selská chalupa Anetka');
-    const body = encodeURIComponent(`Jméno: ${jmeno}\nE-mail: ${email}\nTelefon: ${telefon}\n\nZpráva:\n${zprava}`);
-    window.location.href = `mailto:tesarovaaneta@gmail.com?subject=${subject}&body=${body}`;
-  });
+  // contact form -> Web3Forms
+  (function(){
+    const form = document.getElementById('inquiryForm');
+    const status = document.getElementById('formStatus');
+    const submitBtn = form.querySelector('button[type="submit"]');
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      submitBtn.disabled = true;
+      status.className = 'form-status show';
+      status.textContent = 'Odesílám…';
+
+      const data = new FormData(form);
+
+      fetch(form.action, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: data
+      })
+        .then(res => res.json())
+        .then(result => {
+          if (result.success) {
+            status.className = 'form-status show success';
+            status.textContent = 'Děkujeme, poptávka byla odeslána. Ozveme se vám co nejdříve.';
+            form.reset();
+          } else {
+            status.className = 'form-status show error';
+            status.textContent = 'Odeslání se nepovedlo. Napište nám prosím rovnou na tesarovaaneta@gmail.com.';
+          }
+        })
+        .catch(() => {
+          status.className = 'form-status show error';
+          status.textContent = 'Odeslání se nepovedlo. Napište nám prosím rovnou na tesarovaaneta@gmail.com.';
+        })
+        .finally(() => {
+          submitBtn.disabled = false;
+        });
+    });
+  })();
 
   // cookie consent
   const COOKIE_KEY = 'anetkaCookieConsent';
