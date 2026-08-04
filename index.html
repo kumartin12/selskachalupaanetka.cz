@@ -673,16 +673,20 @@
   @media (max-width:680px){
     body{padding-bottom:64px;}
     .mobile-callbar{
-      display:block;
+      display:flex;
       position:fixed; left:0; right:0; bottom:0; z-index:100;
       box-shadow:0 -8px 20px rgba(20,26,20,0.25);
     }
     .mobile-callbar a{
-      display:flex; align-items:center; justify-content:center; gap:10px;
-      padding:16px 20px;
-      background:var(--barn); color:var(--cream);
-      font-family:'Karla', sans-serif; font-weight:700; font-size:15px;
+      display:flex; align-items:center; justify-content:center; gap:8px;
+      flex:1;
+      padding:16px 10px;
+      color:var(--cream);
+      font-family:'Karla', sans-serif; font-weight:700; font-size:14.5px;
+      white-space:nowrap;
     }
+    .mobile-callbar .callbar-call{background:var(--barn);}
+    .mobile-callbar .callbar-mail{background:var(--pine);}
   }
   body.cookie-pending .mobile-callbar{display:none;}
 
@@ -1194,8 +1198,11 @@
 </footer>
 
 <div class="mobile-callbar">
-  <a href="tel:+420605918891">
-    <span aria-hidden="true">☎</span> Zavolat +420 605 918 891
+  <a href="tel:+420605918891" class="callbar-call">
+    <span aria-hidden="true">☎</span> 605 918 891
+  </a>
+  <a href="mailto:tesarovaaneta@gmail.com" class="callbar-mail">
+    <span aria-hidden="true">✉</span> E-mail
   </a>
 </div>
 
