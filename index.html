@@ -196,7 +196,7 @@
     display:flex; align-items:center; justify-content:space-between;
     padding:10px 28px;
   }
-  .brand{display:flex; flex-direction:column; align-items:flex-start; gap:2px;}
+  .brand{display:flex; flex-direction:column; align-items:flex-start; gap:2px; text-decoration:none;}
   .brand-text{display:flex; flex-direction:column; line-height:1;}
   .brand .sub{font-family:'Karla', sans-serif; font-weight:700; font-size:10.5px; text-transform:uppercase; letter-spacing:0.14em; color:var(--barn); margin-top:6px; white-space:nowrap;}
   .brand-logo{height:58px; width:auto; display:block;}
@@ -627,6 +627,15 @@
     }
   }
 
+  @media (max-width:560px){
+    .nav{padding:10px 16px; gap:10px;}
+    .brand-logo{height:44px;}
+    .brand .sub{font-size:9px; white-space:normal;}
+    .nav-actions{gap:8px;}
+    .nav-actions .btn-ghost{display:none;}
+    .nav-actions .btn-primary{padding:10px 14px; font-size:13px;}
+  }
+
   @media (max-width:980px){
     .hero-grid{grid-template-columns:1fr; gap:40px;}
     .hero-media{order:-1;}
@@ -648,6 +657,15 @@
     .reviews-grid{grid-template-columns:1fr;}
     section{padding:64px 0;}
     .facts .wrap{justify-content:flex-start;}
+
+    .hero-media{padding-bottom:0;}
+    .hero-media .badge{
+      left:14px; bottom:14px;
+      max-width:150px;
+      padding:9px 12px;
+    }
+    .hero-media .badge .num{font-size:22px;}
+    .hero-media .badge .txt{font-size:11.5px;}
   }
 
   /* ---------- mobile call bar ---------- */
@@ -740,12 +758,12 @@
 
 <header>
   <div class="nav wrap">
-    <div class="brand">
+    <a href="#" class="brand" aria-label="Domů">
       <img src="photos/logo.png" alt="Anetka — Selská chalupa" class="brand-logo">
       <div class="brand-text">
         <span class="sub">Selská chalupa · Český les</span>
       </div>
-    </div>
+    </a>
     <nav class="nav-links" id="navLinks">
       <a href="#o-nas">O chalupě</a>
       <a href="#pokoje">Pokoje</a>
