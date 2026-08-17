@@ -869,6 +869,8 @@
   .lightbox-nav.prev{left:20px;}
   .lightbox-nav.next{right:20px;}
   body.lightbox-open{overflow:hidden;}
+  /* Chromium can paint a sticky header above a fixed overlay despite lower z-index; drop it out of the sticky layer while the lightbox is open. */
+  body.lightbox-open header{position:static;}
   @media (max-width:680px){
     .lightbox{padding:80px 12px;}
     .lightbox-nav{width:42px; height:42px; font-size:20px;}
