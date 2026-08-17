@@ -736,6 +736,146 @@
     .cookie-banner{flex-direction:column; align-items:stretch;}
     .cookie-banner-actions{justify-content:flex-end;}
   }
+
+  /* ================= NEW: interaction / polish layer ================= */
+
+  /* scroll progress bar in header */
+  .scroll-progress{
+    position:absolute; left:0; bottom:-1px; height:2px; width:0%;
+    background:var(--barn);
+  }
+
+  /* gallery hover-zoom frame */
+  .zoom-frame{position:relative; overflow:hidden; border-radius:6px; cursor:zoom-in;}
+  .zoom-frame img.ph{width:100%; height:100%; object-fit:cover; transition:transform .6s cubic-bezier(.2,.7,.2,1);}
+  .zoom-frame:hover img.ph{transform:scale(1.07);}
+  .g-item .zoom-frame{flex:1; min-height:220px;}
+  .room-photos img.ph{transition:opacity .45s ease, transform .6s cubic-bezier(.2,.7,.2,1);}
+  .room-photos:hover img.ph.active{transform:scale(1.06);}
+  #galerie .room-photos, #pokoje .room-photos{cursor:zoom-in;}
+
+  /* trip card hover lift (matches room-card treatment) */
+  .trip-card{transition:transform .22s ease, box-shadow .22s ease;}
+  .trip-card:hover{transform:translateY(-6px); box-shadow:var(--shadow);}
+
+  /* review card polish: stars + decorative quote mark */
+  .review-card{position:relative; overflow:hidden;}
+  .review-card .stars{display:flex; gap:3px; margin-bottom:14px;}
+  .review-card .stars svg{width:15px; height:15px; color:var(--gold);}
+  .review-card .quote-mark{
+    position:absolute; top:6px; right:20px;
+    font-family:'Fraunces', serif; font-size:64px; line-height:1;
+    color:var(--line); user-select:none; pointer-events:none;
+  }
+
+  /* grid reveal stagger */
+  .rooms-grid .reveal:nth-child(1){transition-delay:.04s;}
+  .rooms-grid .reveal:nth-child(2){transition-delay:.14s;}
+  .rooms-grid .reveal:nth-child(3){transition-delay:.24s;}
+  .gallery-grid .reveal:nth-child(1){transition-delay:.03s;}
+  .gallery-grid .reveal:nth-child(2){transition-delay:.09s;}
+  .gallery-grid .reveal:nth-child(3){transition-delay:.15s;}
+  .gallery-grid .reveal:nth-child(4){transition-delay:.21s;}
+  .gallery-grid .reveal:nth-child(5){transition-delay:.27s;}
+  .gallery-grid .reveal:nth-child(6){transition-delay:.33s;}
+  .gallery-grid .reveal:nth-child(7){transition-delay:.39s;}
+  .gallery-grid .reveal:nth-child(8){transition-delay:.45s;}
+  .gallery-grid .reveal:nth-child(9){transition-delay:.51s;}
+  .trips-scroll .reveal:nth-child(1){transition-delay:.04s;}
+  .trips-scroll .reveal:nth-child(2){transition-delay:.13s;}
+  .trips-scroll .reveal:nth-child(3){transition-delay:.22s;}
+  .trips-scroll .reveal:nth-child(4){transition-delay:.31s;}
+  .reviews-grid .reveal:nth-child(1){transition-delay:.04s;}
+  .reviews-grid .reveal:nth-child(2){transition-delay:.14s;}
+  .reviews-grid .reveal:nth-child(3){transition-delay:.24s;}
+
+  /* video facade (click-to-load instead of autoplaying a 33MB file) */
+  .video-cover{
+    position:relative; aspect-ratio:16/10;
+    background-size:cover; background-position:center;
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer; border:0; width:100%; padding:0;
+  }
+  .video-cover::after{
+    content:""; position:absolute; inset:0;
+    background:rgba(20,26,20,0.30); transition:background .2s ease;
+  }
+  .video-cover:hover::after{background:rgba(20,26,20,0.44);}
+  .video-cover .play{
+    position:relative; z-index:1;
+    width:84px; height:84px; border-radius:50%;
+    background:rgba(245,243,234,0.94);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 10px 30px rgba(0,0,0,0.4);
+    transition:transform .22s ease;
+    border:0; cursor:pointer;
+  }
+  .video-cover:hover .play{transform:scale(1.08);}
+  .video-cover .play::after{
+    content:"";
+    border-left:20px solid var(--pine-dark);
+    border-top:12px solid transparent;
+    border-bottom:12px solid transparent;
+    margin-left:5px;
+  }
+
+  /* back to top */
+  .back-to-top{
+    position:fixed; right:24px; bottom:24px; z-index:90;
+    width:46px; height:46px; border-radius:50%;
+    background:var(--ink); color:var(--cream);
+    border:0; display:flex; align-items:center; justify-content:center;
+    box-shadow:var(--shadow); cursor:pointer;
+    opacity:0; pointer-events:none; transform:translateY(10px);
+    transition:opacity .25s ease, transform .25s ease, background .2s ease;
+  }
+  .back-to-top.show{opacity:1; pointer-events:auto; transform:translateY(0);}
+  .back-to-top:hover{background:var(--barn);}
+  .back-to-top svg{width:18px; height:18px;}
+  @media (max-width:680px){
+    .back-to-top{right:16px; bottom:80px; width:42px; height:42px;}
+  }
+
+  /* lightbox */
+  .lightbox{
+    position:fixed; inset:0; z-index:400;
+    background:rgba(15,19,16,0.94);
+    display:flex; align-items:center; justify-content:center;
+    padding:60px 20px;
+    opacity:0; transition:opacity .25s ease;
+  }
+  .lightbox[hidden]{display:none;}
+  .lightbox.show{opacity:1;}
+  .lightbox-stage{max-width:min(92vw, 1100px); max-height:82vh; text-align:center;}
+  .lightbox-stage img{
+    max-width:100%; max-height:78vh; margin:0 auto;
+    border-radius:8px; box-shadow:0 30px 60px rgba(0,0,0,0.5);
+    display:block;
+  }
+  .lightbox-caption{
+    color:rgba(245,243,234,0.85); font-family:'Karla', sans-serif;
+    font-size:13.5px; margin-top:14px;
+  }
+  .lightbox-close, .lightbox-nav{
+    position:fixed;
+    background:rgba(245,243,234,0.12); color:var(--cream);
+    border:1px solid rgba(245,243,234,0.28); border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer; transition:background .2s ease;
+  }
+  .lightbox-close:hover, .lightbox-nav:hover{background:rgba(245,243,234,0.24);}
+  .lightbox-close{top:24px; right:24px; width:44px; height:44px; font-size:24px;}
+  .lightbox-nav{top:50%; transform:translateY(-50%); width:52px; height:52px; font-size:26px;}
+  .lightbox-nav.prev{left:20px;}
+  .lightbox-nav.next{right:20px;}
+  body.lightbox-open{overflow:hidden;}
+  @media (max-width:680px){
+    .lightbox{padding:80px 12px;}
+    .lightbox-nav{width:42px; height:42px; font-size:20px;}
+    .lightbox-nav.prev{left:8px;}
+    .lightbox-nav.next{right:8px;}
+    .lightbox-close{top:14px; right:14px; width:38px; height:38px;}
+  }
 </style>
 
 <!-- Strukturovaná data pro Google (LodgingBusiness) — pomáhá zobrazení ve vyhledávání a mapách -->
@@ -765,6 +905,7 @@
 <a class="skip-link" href="#main">Přeskočit na obsah</a>
 
 <header>
+  <div class="scroll-progress" id="scrollProgress"></div>
   <div class="nav wrap">
     <a href="#" class="brand" aria-label="Domů">
       <img src="photos/logo.png" alt="Anetka — Selská chalupa" class="brand-logo">
@@ -960,11 +1101,11 @@
       </div>
       <div class="gallery-grid">
         <div class="g-item reveal">
-          <img src="photos/galerie-vjezd.jpg" alt="Hlavní vjezd do areálu" loading="lazy" decoding="async" class="ph">
+          <div class="zoom-frame"><img src="photos/galerie-vjezd.jpg" alt="Hlavní vjezd do areálu" loading="lazy" decoding="async" class="ph"></div>
           <div class="cap">Hlavní vjezd do areálu — přístup z návsi</div>
         </div>
         <div class="g-item reveal">
-          <img src="photos/galerie-parkoviste.jpg" alt="Parkoviště" loading="lazy" decoding="async" class="ph">
+          <div class="zoom-frame"><img src="photos/galerie-parkoviste.jpg" alt="Parkoviště" loading="lazy" decoding="async" class="ph"></div>
           <div class="cap">Parkoviště — zdarma pro hosty</div>
         </div>
         <div class="g-item reveal">
@@ -977,27 +1118,27 @@
           <div class="cap">Minirestaurace a jídelna</div>
         </div>
         <div class="g-item reveal">
-          <img src="photos/galerie-terasa.jpg" alt="Terasa s grilem a udírnou" loading="lazy" decoding="async" class="ph">
+          <div class="zoom-frame"><img src="photos/galerie-terasa.jpg" alt="Terasa s grilem a udírnou" loading="lazy" decoding="async" class="ph"></div>
           <div class="cap">Terasa s grilem a udírnou</div>
         </div>
         <div class="g-item reveal">
-          <img src="photos/galerie-kryta-terasa.jpg" alt="Krytá terasa" loading="lazy" decoding="async" class="ph">
+          <div class="zoom-frame"><img src="photos/galerie-kryta-terasa.jpg" alt="Krytá terasa" loading="lazy" decoding="async" class="ph"></div>
           <div class="cap">Krytá terasa</div>
         </div>
         <div class="g-item reveal">
-          <img src="photos/galerie-interier.jpg" alt="Interiér — točité schodiště" loading="lazy" decoding="async" class="ph">
+          <div class="zoom-frame"><img src="photos/galerie-interier.jpg" alt="Interiér — točité schodiště" loading="lazy" decoding="async" class="ph"></div>
           <div class="cap">Interiér — točité schodiště</div>
         </div>
         <div class="g-item reveal">
-          <img src="photos/galerie-virivka.jpg" alt="Vyhřívaná vířivka na zahradě" loading="lazy" decoding="async" class="ph">
+          <div class="zoom-frame"><img src="photos/galerie-virivka.jpg" alt="Vyhřívaná vířivka na zahradě" loading="lazy" decoding="async" class="ph"></div>
           <div class="cap">Vyhřívaná vířivka na zahradě</div>
         </div>
         <div class="g-item reveal">
-          <img src="photos/galerie-kulecnik.jpg" alt="Kulečník" loading="lazy" decoding="async" class="ph">
+          <div class="zoom-frame"><img src="photos/galerie-kulecnik.jpg" alt="Kulečník" loading="lazy" decoding="async" class="ph"></div>
           <div class="cap">Kulečník</div>
         </div>
         <div class="g-item reveal">
-          <img src="photos/galerie-gril.jpg" alt="Grilování na terase" loading="lazy" decoding="async" class="ph">
+          <div class="zoom-frame"><img src="photos/galerie-gril.jpg" alt="Grilování na terase" loading="lazy" decoding="async" class="ph"></div>
           <div class="cap">Grilování na terase</div>
         </div>
       </div>
@@ -1082,14 +1223,38 @@
       </div>
       <div class="reviews-grid">
         <div class="review-card reveal">
+          <span class="quote-mark" aria-hidden="true">”</span>
+          <div class="stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 8.5l6.4-.6z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 8.5l6.4-.6z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 8.5l6.4-.6z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 8.5l6.4-.6z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 8.5l6.4-.6z"/></svg>
+          </div>
           <p class="quote">„Velmi útulný rodinný podnik, moc milý personál a skvělá snídaně. Skutečně se zde člověk cítí jako doma a rádi se sem vrátíme.“</p>
           <div class="who"><strong>Dominika</strong><span>říjen 2021</span></div>
         </div>
         <div class="review-card reveal">
+          <span class="quote-mark" aria-hidden="true">”</span>
+          <div class="stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 8.5l6.4-.6z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 8.5l6.4-.6z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 8.5l6.4-.6z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 8.5l6.4-.6z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 8.5l6.4-.6z"/></svg>
+          </div>
           <p class="quote">„Ubytování předčilo naše očekávání ve všech směrech. Pokoje skvělé, čistota na 100 %, vše voňavé a moc hezké. Majitelé velmi příjemní a starali se o nás skvěle.“</p>
           <div class="who"><strong>Radka</strong><span>srpen 2021</span></div>
         </div>
         <div class="review-card reveal">
+          <span class="quote-mark" aria-hidden="true">”</span>
+          <div class="stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 8.5l6.4-.6z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 8.5l6.4-.6z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 8.5l6.4-.6z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 8.5l6.4-.6z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3L1 8.5l6.4-.6z"/></svg>
+          </div>
           <p class="quote">„Čistota a krásné zařízení. Úžasně ochotný, vstřícný a komunikativní personál. Výjimečný zážitek — a výborné pivko.“</p>
           <div class="who"><strong>Max</strong><span>září 2021</span></div>
         </div>
@@ -1208,6 +1373,20 @@
   <a href="mailto:tesarovaaneta@gmail.com" class="callbar-mail">
     <span aria-hidden="true">✉</span> E-mail
   </a>
+</div>
+
+<button type="button" class="back-to-top" id="backToTop" aria-label="Zpět nahoru">
+  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 14l6-6 6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Prohlížeč fotografií" hidden>
+  <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Zavřít">&times;</button>
+  <button type="button" class="lightbox-nav prev" id="lightboxPrev" aria-label="Předchozí fotka">‹</button>
+  <div class="lightbox-stage">
+    <img id="lightboxImg" src="" alt="">
+    <p class="lightbox-caption" id="lightboxCaption"></p>
+  </div>
+  <button type="button" class="lightbox-nav next" id="lightboxNext" aria-label="Další fotka">›</button>
 </div>
 
 <div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Nastavení cookies" hidden>
@@ -1431,6 +1610,134 @@
     e.preventDefault();
     openCookieModal(getConsent());
   });
+
+  // ---------- reduced motion helper ----------
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ---------- scroll progress bar + back-to-top + hero parallax ----------
+  (function(){
+    const progress = document.getElementById('scrollProgress');
+    const toTop = document.getElementById('backToTop');
+    const heroImg = document.querySelector('.hero-photo img.ph');
+    let ticking = false;
+
+    function update(){
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progress.style.width = pct + '%';
+
+      toTop.classList.toggle('show', scrollTop > 700);
+
+      if (heroImg && !prefersReducedMotion){
+        const shift = Math.min(scrollTop * 0.06, 26);
+        heroImg.style.transform = `translateY(${shift}px) scale(1.08)`;
+      }
+      ticking = false;
+    }
+    window.addEventListener('scroll', () => {
+      if (!ticking){ requestAnimationFrame(update); ticking = true; }
+    }, { passive:true });
+    update();
+
+    toTop.addEventListener('click', () => {
+      window.scrollTo({ top:0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+    });
+  })();
+
+  // ---------- video facade: load & play only on click ----------
+  (function(){
+    const cover = document.getElementById('videoCover');
+    const video = document.getElementById('mainVideo');
+    if (!cover || !video) return;
+    cover.addEventListener('click', () => {
+      cover.style.display = 'none';
+      video.style.display = 'block';
+      video.play();
+    });
+  })();
+
+  // ---------- lightbox ----------
+  (function(){
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightboxImg');
+    const lbCaption = document.getElementById('lightboxCaption');
+    const lbPrev = document.getElementById('lightboxPrev');
+    const lbNext = document.getElementById('lightboxNext');
+    const lbClose = document.getElementById('lightboxClose');
+
+    let currentList = [];
+    let currentIndex = 0;
+    let lastFocused = null;
+
+    function render(){
+      const item = currentList[currentIndex];
+      lbImg.src = item.src;
+      lbImg.alt = item.alt || '';
+      lbCaption.textContent = item.caption || '';
+    }
+    function open(list, startIndex){
+      currentList = list;
+      currentIndex = startIndex;
+      if (!currentList.length) return;
+      lastFocused = document.activeElement;
+      render();
+      lightbox.hidden = false;
+      requestAnimationFrame(() => lightbox.classList.add('show'));
+      document.body.classList.add('lightbox-open');
+      lbClose.focus();
+    }
+    function close(){
+      lightbox.classList.remove('show');
+      document.body.classList.remove('lightbox-open');
+      setTimeout(() => { lightbox.hidden = true; }, 200);
+      if (lastFocused) lastFocused.focus();
+    }
+    function step(dir){
+      if (currentList.length < 2) return;
+      currentIndex = (currentIndex + dir + currentList.length) % currentList.length;
+      render();
+    }
+
+    lbClose.addEventListener('click', close);
+    lbPrev.addEventListener('click', () => step(-1));
+    lbNext.addEventListener('click', () => step(1));
+    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) close(); });
+    document.addEventListener('keydown', (e) => {
+      if (lightbox.hidden) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowLeft') step(-1);
+      if (e.key === 'ArrowRight') step(1);
+    });
+
+    // gallery: tour through all #galerie items, using each item's currently visible photo
+    const galleryItems = Array.from(document.querySelectorAll('#galerie .g-item'));
+    galleryItems.forEach((item, idx) => {
+      item.addEventListener('click', (e) => {
+        if (e.target.closest('.room-nav, .room-dot')) return;
+        const list = galleryItems.map(gi => {
+          const img = gi.querySelector('.room-photos img.active') || gi.querySelector('img.ph');
+          const cap = gi.querySelector('.cap');
+          return { src: img.src, alt: img.alt, caption: cap ? cap.textContent : '' };
+        });
+        open(list, idx);
+      });
+    });
+
+    // room cards: cycle through that room's own photo set
+    document.querySelectorAll('#pokoje .room-card').forEach(card => {
+      const box = card.querySelector('.room-photos');
+      if (!box) return;
+      const title = card.querySelector('h3');
+      box.addEventListener('click', (e) => {
+        if (e.target.closest('.room-nav, .room-dot')) return;
+        const imgs = Array.from(box.querySelectorAll('img'));
+        const activeIdx = imgs.findIndex(img => img.classList.contains('active'));
+        const list = imgs.map(img => ({ src: img.src, alt: img.alt, caption: title ? title.textContent : '' }));
+        open(list, activeIdx >= 0 ? activeIdx : 0);
+      });
+    });
+  })();
 </script>
 
 </body>
