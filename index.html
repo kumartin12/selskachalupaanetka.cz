@@ -511,6 +511,14 @@
     background:#fff;
   }
   .trip-card .ph{height:170px;}
+  .ph-wrap{position:relative;}
+  .photo-credit{
+    position:absolute; right:6px; bottom:6px;
+    font-family:'Karla', sans-serif; font-size:10px; color:#fff;
+    background:rgba(0,0,0,0.45); padding:2px 7px; border-radius:4px;
+    text-decoration:none;
+  }
+  .photo-credit:hover{background:rgba(0,0,0,0.7);}
   .trip-card-body{padding:20px 22px 24px;}
   .trip-card-body .cap{
     font-family:'Karla', sans-serif; font-weight:700; font-size:11px; text-transform:uppercase;
@@ -1201,7 +1209,10 @@
           </div>
         </div>
         <div class="trip-card reveal">
-          <img src="photos/vylet-zamek-hstyn.jpg" alt="Zámek Horšovský Týn" loading="lazy" decoding="async" class="ph">
+          <div class="ph-wrap">
+            <img src="photos/vylet-zamek-hstyn.jpg" alt="Zámek Horšovský Týn" loading="lazy" decoding="async" class="ph">
+            <a class="photo-credit" href="https://commons.wikimedia.org/wiki/File:Z%C3%A1mek_Hor%C5%A1ovsk%C3%BD_T%C3%BDn_z%C3%A1%C5%99%C3%AD_2021_(1).jpg" target="_blank" rel="noopener">Foto: L. Ferenc, CC BY-SA 4.0</a>
+          </div>
           <div class="trip-card-body">
             <span class="cap">Horšovský Týn</span>
             <h3>Zámek a zámecký park</h3>
