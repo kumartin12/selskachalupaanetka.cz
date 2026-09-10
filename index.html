@@ -440,6 +440,17 @@
   }
   .room-card-body h3{font-size:22px; margin-bottom:10px;}
   .room-card-body p{color:var(--ink-soft); font-size:15px; margin:0;}
+  .room-price{
+    display:flex; align-items:baseline; gap:6px;
+    margin-top:14px; padding-top:14px;
+    border-top:1px solid var(--line);
+  }
+  .room-price .amount{
+    font-family:'Fraunces', serif; font-weight:600; font-size:21px; color:var(--barn);
+  }
+  .room-price .unit{
+    font-family:'Karla', sans-serif; font-size:12.5px; color:var(--ink-soft);
+  }
   .rooms-note{
     margin-top:32px;
     display:flex; gap:12px; flex-wrap:wrap;
@@ -681,17 +692,24 @@
   }
 
   /* ---------- availability quick-check widget ---------- */
+  .avail-block{margin-top:56px; text-align:center;}
+  .avail-block h3{
+    font-size:clamp(22px,2.4vw,28px); margin-bottom:18px;
+  }
   .avail-widget{
     background:#fff;
     border:1px solid var(--line);
     border-radius:14px;
     box-shadow:var(--shadow);
     padding:18px 20px;
-    margin-top:22px;
+    max-width:720px;
+    margin:0 auto;
     display:flex;
     flex-wrap:wrap;
     align-items:end;
+    justify-content:center;
     gap:14px;
+    text-align:left;
   }
   .avail-widget .af{display:flex; flex-direction:column; gap:6px;}
   .avail-widget .af label{
@@ -1125,23 +1143,6 @@
             +420 605 918 891
           </a>
         </div>
-
-        <!-- POZNÁMKA PRO MARTINA: tento mini-widget jen poskládá termín do odkazu na Booking.com
-             (parametry checkin/checkout se u booking.com share odkazů obvykle přenesou dál).
-             Není to živý kalendář obsazenosti — na to by bylo potřeba napojit se na Booking.com
-             Connectivity API nebo použít kanálový manažer (viz shrnutí v chatu). -->
-        <form class="avail-widget" id="availForm">
-          <div class="af">
-            <label for="availCheckin">Příjezd</label>
-            <input type="date" id="availCheckin" name="checkin" required>
-          </div>
-          <div class="af">
-            <label for="availCheckout">Odjezd</label>
-            <input type="date" id="availCheckout" name="checkout" required>
-          </div>
-          <button type="submit" class="btn btn-primary">Ověřit dostupnost</button>
-          <span class="avail-hint">Otevře nabídku termínu na Booking.com. Na konkrétní dotaz raději napište přímo přes <a href="#kontakt" style="text-decoration:underline;">formulář</a> nebo zavolejte.</span>
-        </form>
       </div>
       <div class="hero-media reveal">
         <div class="hero-photo">
@@ -1206,6 +1207,7 @@
             <span class="cap">Pro 1 osobu</span>
             <h3>Jednolůžkový pokoj</h3>
             <p>Komfortní pokoj s vlastní koupelnou a WC — ideální pro cestu na jeden nebo dva noclehy.</p>
+            <div class="room-price"><span class="amount">1 850 Kč</span><span class="unit">/ noc</span></div>
           </div>
         </div>
         <div class="room-card reveal">
@@ -1218,6 +1220,7 @@
             <span class="cap">Pro 2 osoby</span>
             <h3>Dvoulůžkový pokoj</h3>
             <p>Prostorný pokoj s vlastní koupelnou a WC, vhodný pro páry i přátele na výletě.</p>
+            <div class="room-price"><span class="amount">2 700 Kč</span><span class="unit">/ noc</span></div>
           </div>
         </div>
         <div class="room-card reveal">
@@ -1231,6 +1234,7 @@
             <span class="cap">Pro 3–5 osob</span>
             <h3>Mezonet</h3>
             <p>Dvoupodlažní ubytování s vlastním sociálním zařízením a možností přistýlky — pro rodiny i skupiny.</p>
+            <div class="room-price"><span class="amount">6 500 Kč</span><span class="unit">/ noc</span></div>
           </div>
         </div>
       </div>
@@ -1240,8 +1244,29 @@
         <span>Check-out do 10:00</span>
         <span>Recepce Po–Pá 09:00–15:00</span>
       </div>
+
+      <!-- POZNÁMKA PRO MARTINA: tento mini-widget jen poskládá termín do odkazu na Booking.com
+           (parametry checkin/checkout se u booking.com share odkazů obvykle přenesou dál).
+           Není to živý kalendář obsazenosti — na to by bylo potřeba napojit se na Booking.com
+           Connectivity API nebo použít kanálový manažer (viz shrnutí v chatu). -->
+      <div class="avail-block reveal">
+        <h3>Máte termín? Ověřte dostupnost</h3>
+        <form class="avail-widget" id="availForm">
+          <div class="af">
+            <label for="availCheckin">Příjezd</label>
+            <input type="date" id="availCheckin" name="checkin" required>
+          </div>
+          <div class="af">
+            <label for="availCheckout">Odjezd</label>
+            <input type="date" id="availCheckout" name="checkout" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Ověřit dostupnost</button>
+          <span class="avail-hint">Otevře nabídku termínu na Booking.com. Na konkrétní dotaz raději napište přímo přes <a href="#kontakt" style="text-decoration:underline;">formulář</a> nebo zavolejte.</span>
+        </form>
+      </div>
     </div>
   </section>
+
 
   <!-- ================= VIDEO ================= -->
   <section id="video" class="video-section">
