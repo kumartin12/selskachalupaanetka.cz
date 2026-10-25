@@ -140,7 +140,7 @@
   header .btn{padding:11px 20px; font-size:15px;}
   header:not(.solid) .btn-ghost{color:#fff; border-color:rgba(255,255,255,.55);}
   header:not(.solid) .btn-ghost:hover{border-color:#fff; background:rgba(255,255,255,.1);}
-  .burger{display:none; background:none; border:0; cursor:pointer; padding:8px;}
+  .burger{display:none; background:none; border:0; cursor:pointer; padding:8px; color:inherit; -webkit-appearance:none; appearance:none;}
   .burger span{display:block; width:24px; height:2px; background:currentColor; margin:5px 0; transition:background .3s ease;}
 
   /* ================= HERO ================= */
@@ -189,11 +189,11 @@
     animation:rise 1s cubic-bezier(.2,.7,.2,1) .8s both;
   }
   .avail-block h3{font-size:clamp(1.25rem, 2vw, 1.55rem); max-width:16ch; color:#fff;}
-  .avail-widget{flex:1; min-width:0; display:flex; flex-wrap:wrap; align-items:flex-end; gap:12px 14px;}
+  .avail-widget{flex:1 1 440px; min-width:0; display:flex; flex-wrap:wrap; align-items:flex-end; gap:12px 14px;}
   .avail-widget .af{display:flex; flex-direction:column; gap:5px; flex:1 1 150px; min-width:0;}
   .avail-widget .af label{font-size:13px; font-weight:600; color:rgba(255,255,255,.78);}
   .avail-widget .af input{
-    width:100%; padding:12px 14px; border-radius:12px; color:#fff; color-scheme:dark;
+    width:100%; min-width:0; padding:12px 14px; border-radius:12px; color:#fff; color-scheme:dark; -webkit-appearance:none; appearance:none; min-height:48px;
     border:1px solid rgba(255,255,255,.28); background:rgba(255,255,255,.08);
     font-family:var(--body); font-size:16px;
   }
@@ -332,6 +332,8 @@
   #svatby .rooms-note{margin-top:30px;}
   #svatby .rooms-note span::before{background:var(--amber);}
   #svatby .about{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);}
+  .svatby-flyer{margin:clamp(48px, 6vw, 88px) 0 0;}
+  .svatby-flyer img{width:100%; height:auto; border-radius:12px; box-shadow:0 30px 70px -24px rgba(0,0,0,.6);}
 
   /* ================= RECENZE ================= */
   .reviews-grid{display:grid; grid-template-columns:minmax(0,7fr) minmax(0,5fr); gap:0 clamp(40px, 7vw, 110px);}
@@ -511,7 +513,8 @@
     .hero-photo::after{background:linear-gradient(180deg, rgba(20,14,11,.55) 0%, rgba(20,14,11,.62) 40%, rgba(20,14,11,.92) 100%);}
     .hero-ctas{margin-bottom:36px;}
     .hero-ctas .btn, .phone-badge{flex:1 1 100%;}
-    .avail-block{padding:18px; gap:12px;}
+    .avail-block{padding:18px; gap:12px; flex-direction:column; align-items:stretch;}
+    .avail-widget{flex:none; width:100%;}
     .avail-block h3{max-width:none;}
     .avail-widget .af{flex:1 1 130px;}
     .avail-widget .btn{flex:1 1 100%;}
@@ -938,6 +941,11 @@
           <span>Parkování zdarma</span>
         </div>
       </div>
+    </div>
+    <div class="wrap">
+      <figure class="svatby-flyer">
+        <img src="photos/hero.jpg" alt="Svatby a oslavy na venkově — romantické prostředí chalupy, venkovní zahrada, gril, udírna a vířivka" loading="lazy" decoding="async" width="1536" height="1024">
+      </figure>
     </div>
   </section>
 
